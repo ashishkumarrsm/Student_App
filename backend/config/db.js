@@ -18,9 +18,11 @@
 
 
 
-import {createPool, mysql } from 'mysql2'
-import dotenv from dotenv
+import mysql2 from 'mysql2';
+import dotenv from 'dotenv';
+dotenv.config();
 
+const { createPool } = mysql2;
 const pool= createPool({
   host: process.env.DB_HOST,
   user: process.env.DB_USER,
@@ -33,4 +35,4 @@ pool.getConnection((err, connection) => {
   console.log('Connected to MySQL');
 })
 
-module.exports = pool;
+export default pool;

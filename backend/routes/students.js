@@ -30,9 +30,9 @@ import express from 'express'
 
 const router = express.Router()
 
-import db from '../config/db'
+import db from '../config/db.js'
 
-import authMiddleware from '../middleware/auth'
+import authMiddleware from '../middleware/auth.js'
 
 router.get('/', (req, res) => {
   db.query('SELECT * FROM students', (err, results) => {
